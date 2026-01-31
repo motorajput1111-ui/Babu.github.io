@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Seren 💜</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* 🌌 BACKGROUND */
+body{
+    margin:0;
+    height:100vh;
+    font-family:'Poppins',sans-serif;
+    background:radial-gradient(circle at top,#240030,#0a0012);
+    overflow:hidden;
+    color:white;
+}
+
+/* BLUR CIRCLES + STARS */
+.bg span{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(8px);
+    opacity:.25;
+    animation:floatBg linear infinite;
+}
+.star{
+    font-size:14px;
+    filter:none;
+    opacity:.4;
+}
+
+@keyframes floatBg{
+    from{transform:translateY(110vh)}
+    to{transform:translateY(-10vh)}
+}
+
+/* TOP NAME */
+.top-name{
+    position:fixed;
+    top:14px;
+    left:18px;
+    font-size:14px;
+    letter-spacing:1px;
+    opacity:.75;
+    z-index:5;
+}
+
+/* WATERMARK */
+.watermark{
+    position:fixed;
+    bottom:14px;
+    right:18px;
+    font-size:12px;
+    opacity:.35;
+    z-index:5;
+}
+
+/* CENTER */
+.wrapper{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* ❤️ HEARTBEAT CARD */
+.card{
+    width:360px;
+    min-height:560px;
+    background:rgba(0,0,0,.4);
+    backdrop-filter:blur(16px);
+    border-radius:30px;
+    padding:22px;
+    text-align:center;
+    box-shadow:0 0 70px rgba(255,0,255,.35);
+    animation:heartbeat 6s ease-in-out infinite;
+}
+@keyframes heartbeat{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.01)}
+}
+
+.page{display:none;}
+.page.active{display:block;}
+
+.gift{
+    font-size:70px;
+    animation:bounce 1.5s infinite;
+    cursor:pointer;
+}
+@keyframes bounce{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-12px)}
+}
+
+/* BUTTONS */
+button{
+    margin-top:16px;
+    padding:12px 26px;
+    border:none;
+    border-radius:30px;
+    background:#ff2f92;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+    box-shadow:0 0 15px rgba(255,47,146,.6);
+}
+button.alt{background:#ffffff22}
+button:active{
+    transform:scale(.95);
+}
+
+/* IMAGES */
+.page-img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:18px;
+    margin-top:14px;
+    box-shadow:0 0 25px rgba(255,192,203,.35);
+}
+
+/* FLOWERS */
+.flowers span{
+    position:absolute;
+    font-size:26px;
+    animation:fall linear infinite;
+}
+@keyframes fall{
+    from{top:-10%}
+    to{top:110%}
+}
+
+/* MUSIC */
+.music-btn{
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:#ff2f92;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    cursor:pointer;
+    box-shadow:0 0 20px rgba(255,47,146,.6);
+}
+.music-btn.paused{background:#ffffff22}
+</style>
+</head>
+
+<body>
+
+<div class="top-name">Seren 🤍</div>
+<div class="watermark">babu</div>
+
+<!-- BACKGROUND -->
+<div class="bg" id="bg"></div>
+
+<div class="wrapper">
+<div class="card">
+
+<div class="page active">
+    <h3>I made this for you ✨</h3>
+    <div class="gift" id="gift">🎁</div>
+    <img src="img1.jpg" class="page-img">
+</div>
+
+<div class="page">
+    <p class="type" data-text="I don’t know when it happened,
+but you slowly became
+someone my heart notices."></p>
+    <button onclick="nextPage()">Next →</button>
+    <img src="img2.jpg" class="page-img">
+</div>
+
+<div class="page">
+    <p class="type" data-text="Somehow you became
+my favorite thought.
+
+The one my heart
+keeps choosing."></p>
+    <button onclick="nextPage()">Next →</button>
+    <img src="img3.jpg" class="page-img">
+</div>
+
+<div class="page">
+    <p class="type" data-text="Every little thing about you
+feels calm, warm,
+and honestly… special."></p>
+    <button onclick="nextPage()">Next →</button>
+    <img src="img4.jpg" class="page-img">
+</div>
+
+<div class="page">
+    <p class="type" data-text="I don’t need perfection.
+I don’t need promises.
+
+I just want something real."></p>
+    <button onclick="nextPage()">Next →</button>
+    <img src="img5.jpg" class="page-img">
+</div>
+
+<div class="page">
+    <p class="type" data-text="I won’t rush you.
+I won’t pressure you.
+
+Will you try this with me?"></p>
+    <button onclick="yes()">Yes 🤍</button><br>
+    <button class="alt" onclick="no()">I need time 🌙</button>
+</div>
+
+<div class="page">
+    <div class="flowers" id="flowers"></div>
+    <p class="type" data-text="You just made my heart smile.
+
+I promise effort,
+patience and honesty.
+
+I won’t be perfect,
+but I’ll be real."></p>
+    <button onclick="nextPage()">One last thing 🤍</button>
+</div>
+
+<div class="page">
+    <p class="type" data-text="This part is just for you.
+
+No expectations.
+No pressure.
+
+Just a quiet truth.
+
+I care about you.
+More than you know. 🤍"></p>
+</div>
+
+<div class="page">
+    <p class="type" data-text="Thank you for reading till the end.
+
+No matter what,
+this came from a real place.
+
+— with love 🤍"></p>
+</div>
+
+<div class="page">
+    <p class="type" data-text="Thank you for being honest.
+
+I respect your feelings.
+Please don’t feel guilty.
+
+I’m just glad
+I told you my heart."></p>
+</div>
+
+</div>
+</div>
+
+<audio id="music" src="her.mp3" loop></audio>
+<div class="music-btn paused" id="musicBtn">🎵</div>
+
+<script>
+/* BACKGROUND GENERATION */
+const bg=document.getElementById("bg");
+for(let i=0;i<14;i++){
+    let c=document.createElement("span");
+    c.style.width=c.style.height=(80+Math.random()*120)+"px";
+    c.style.background="rgba(255,105,180,.4)";
+    c.style.left=Math.random()*100+"%";
+    c.style.animationDuration=(20+Math.random()*20)+"s";
+    bg.appendChild(c);
+}
+for(let i=0;i<14;i++){
+    let s=document.createElement("span");
+    s.className="star";
+    s.innerHTML="✦";
+    s.style.left=Math.random()*100+"%";
+    s.style.animationDuration=(10+Math.random()*20)+"s";
+    bg.appendChild(s);
+}
+
+/* LOGIC */
+const pages=document.querySelectorAll(".page");
+let current=0;
+const music=document.getElementById("music");
+
+document.getElementById("gift").onclick=()=>{
+    music.play();
+    document.getElementById("musicBtn").classList.remove("paused");
+    nextPage();
+};
+
+function nextPage(){
+    pages[current].classList.remove("active");
+    current++;
+    pages[current]?.classList.add("active");
+    typeCurrent();
+}
+
+function yes(){
+    pages[current].classList.remove("active");
+    current++;
+    pages[current].classList.add("active");
+    spawnFlowers();
+    typeCurrent();
+}
+
+function no(){
+    pages[current].classList.remove("active");
+    current=pages.length-1;
+    pages[current].classList.add("active");
+    typeCurrent();
+}
+
+function spawnFlowers(){
+    const f=document.getElementById("flowers");
+    f.innerHTML="";
+    for(let i=0;i<14;i++){
+        let s=document.createElement("span");
+        s.innerHTML=["🌸","🌹","💗"][Math.floor(Math.random()*3)];
+        s.style.left=Math.random()*100+"%";
+        s.style.animationDuration=(5+Math.random()*5)+"s";
+        f.appendChild(s);
+    }
+}
+
+function typeCurrent(){
+    const p=pages[current].querySelector(".type");
+    if(!p) return;
+    const raw=p.dataset.text;
+    p.innerHTML="";
+    let i=0;
+    (function type(){
+        if(i<raw.length){
+            p.innerHTML+=raw[i]==="\n"?"<br>":raw[i];
+            i++;
+            setTimeout(type,30);
+        }
+    })();
+}
+</script>
+
+</body>
+</html>
